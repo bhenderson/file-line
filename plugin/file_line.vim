@@ -28,7 +28,6 @@ function! s:gotoline()
 
 	if filereadable(file_name)
 		let l:bufn = bufnr("%")
-		exec ":bwipeout " l:bufn
 
 		exec "keepalt edit " . file_name
 		exec ":" . line_num
@@ -37,6 +36,7 @@ function! s:gotoline()
 			exec "normal! zv"
 		endif
 
+		exec ":bwipeout " l:bufn
 
 		exec "normal! zz"
 	endif
